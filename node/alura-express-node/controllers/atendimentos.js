@@ -1,19 +1,32 @@
-const Atendimento = require("../models/atendimentos");
+const Atendimento = require('../models/atendimentos')
 
-module.exports = (app) => {
-  app.get("/atendimentos", (req, res) => {
-    Atendimento.list(res);
-  });
+module.exports = app => {
+    app.get('/atendimentos', (req, res) => {
+        Atendimento.lista(res)
+    })
 
-  app.get("/atendimentos/:id", (req, res) => {
-    const id = parseInt(req.params.id);
+    app.get('/atendimentos/:id', (req, res) => {
+        const id = parseInt(req.params.id)
 
-    Atendimentos.buscaPorId(id, res);
-  });
+        Atendimento.buscaPorId(id, res)
+    })
 
-  app.post("/atendimentos", (req, res) => {
-    const atendimento = req.body;
+    app.post('/atendimentos', (req, res) => {
+       const atendimento = req.body
 
-    Atendimento.adiciona(atendimento, res);
-  });
-};
+        Atendimento.adiciona(atendimento, res)
+    }) 
+
+    app.patch('/atendimentos/:id', (req, res) => {
+        const id = parseInt(req.params.id)
+        const valores = req.body
+
+        Atendimento.altera(id, valores, res)
+    })
+
+    app.delete('/atendimentos/:id', (req, res) => {
+        const id = parseInt(req.params.id)
+
+        Atendimento.deleta(id, res)
+    })
+}
