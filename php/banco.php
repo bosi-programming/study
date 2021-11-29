@@ -23,9 +23,9 @@ $contasCorrentes[] = [
 ];
 
 titularComLetrasMaiusculas($contasCorrentes[0]);
+unset($contasCorrentes[0]);
 
 foreach ($contasCorrentes as $conta) {
-  foreach ($conta as $field => $dado) {
-    echo exibeMensagem("$field => $dado");
-  };
+    ['titular' => $titular, 'saldo' => $saldo] = $conta;
+    echo exibeMensagem("$titular => $saldo");
 };
