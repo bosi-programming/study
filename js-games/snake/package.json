@@ -1,0 +1,10 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "snake game done with kaboom js",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "kaboom": "^2000.1.8"
+  }
+}
